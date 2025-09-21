@@ -1,0 +1,115 @@
+# Bioinformatics Project .gitignore
+
+# ======================
+# BLAST Database Files
+# ======================
+*.gz
+*.tar.gz
+swissprot
+swissprot_db*
+*.phr
+*.pin
+*.psq
+*.pdb
+*.ptf
+*.pto
+
+# ======================
+# BLAST Results
+# ======================
+blast_result_*.txt
+blast_local.out
+*.blast
+*.xml
+*.asn
+
+# ======================
+# Sequence Files (Large)
+# ======================
+# *.gbk
+*.gb
+*.genbank
+*.embl
+*.fna
+*.ffn
+*.faa
+*.frn
+
+# Keep sample/small FASTA files but ignore large ones
+*.fasta
+!*_orfs.fasta
+!sample*.fasta
+
+# ======================
+# Perl/BioPerl Temp Files
+# ======================
+.perl_module_build*
+blib/
+pm_to_blib
+*.bak
+*.tmp
+
+# ======================
+# CPAN Build Files
+# ======================
+.cpan/
+.cpanm/
+local/
+
+# ======================
+# macOS Files
+# ======================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# ======================
+# Editor Files
+# ======================
+# VS Code
+.vscode/
+*.swp
+*.swo
+
+# Vim
+*~
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ======================
+# Logs and Debug
+# ======================
+*.log
+debug.txt
+error.log
+
+# ======================
+# Compressed Files
+# ======================
+*.zip
+*.rar
+*.7z
+
+# ======================
+# Backup Files
+# ======================
+*.backup
+*.bak
+*~
+
+# ======================
+# Keep Important Files
+# ======================
+!Ex*.pl
+!README.md
+!*.md
+!requirements.txt
