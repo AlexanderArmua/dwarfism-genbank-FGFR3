@@ -14,10 +14,12 @@ use Bio::SeqIO; # Biblioteca que permite leer y escribir secuencias en diferente
 # $input: objeto de la clase Bio::SeqIO que permite leer el archivo GenBank
 # $output: objeto de la clase Bio::SeqIO que permite escribir el archivo FASTA
 
-# Input GenBank:
-my $input = Bio::SeqIO->new(-file => "FGFR3.gbk", -format => "genbank");
+my $input_file_name = "FGFR3_human.gbk";
+my $output_file_name = "FGFR3_human_orfs.fasta";
+
+my $input = Bio::SeqIO->new(-file => $input_file_name, -format => "genbank");
 # Output FASTA:
-my $output = Bio::SeqIO->new(-file => ">FGFR3_orfs.fasta", -format => "fasta");
+my $output = Bio::SeqIO->new(-file => ">$output_file_name", -format => "fasta");
 
 while (my $seq_obj = $input->next_seq) {
     # 3 marcos directos:

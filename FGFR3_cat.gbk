@@ -1,0 +1,153 @@
+LOCUS       XM_023253489            4345 bp    mRNA    linear   MAM 09-NOV-2021
+DEFINITION  PREDICTED: Felis catus fibroblast growth factor receptor 3 (FGFR3),
+            transcript variant X1, mRNA.
+ACCESSION   XM_023253489
+VERSION     XM_023253489.2
+DBLINK      BioProject: PRJNA773801
+KEYWORDS    RefSeq.
+SOURCE      Felis catus (domestic cat)
+  ORGANISM  Felis catus
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Laurasiatheria; Carnivora; Feliformia; Felidae;
+            Felinae; Felis.
+COMMENT     MODEL REFSEQ:  This record is predicted by automated computational
+            analysis. This record is derived from a genomic sequence
+            (NC_058371.1) annotated using gene prediction method: Gnomon.
+            Also see:
+                Documentation of NCBI's Annotation Process
+            
+            On Nov 9, 2021 this sequence version replaced XM_023253489.1.
+            
+            ##Genome-Annotation-Data-START##
+            Annotation Provider         :: NCBI
+            Annotation Status           :: Full annotation
+            Annotation Name             :: Felis catus Annotation Release 105
+            Annotation Version          :: 105
+            Annotation Pipeline         :: NCBI eukaryotic genome annotation
+                                           pipeline
+            Annotation Software Version :: 9.0
+            Annotation Method           :: Best-placed RefSeq; Gnomon
+            Features Annotated          :: Gene; mRNA; CDS; ncRNA
+            ##Genome-Annotation-Data-END##
+FEATURES             Location/Qualifiers
+     source          1..4345
+                     /organism="Felis catus"
+                     /mol_type="mRNA"
+                     /isolate="Fca126"
+                     /db_xref="taxon:9685"
+                     /chromosome="B1"
+                     /sex="female"
+                     /cell_type="Fibroblast"
+                     /tissue_type="Fibroblast"
+                     /dev_stage="adult"
+     gene            1..4345
+                     /gene="FGFR3"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Gnomon. Supporting evidence
+                     includes similarity to: 7 Proteins, and 100% coverage of
+                     the annotated genomic feature by RNAseq alignments,
+                     including 17 samples with support for all annotated
+                     introns"
+                     /db_xref="GeneID:100141386"
+                     /db_xref="VGNC:VGNC:78496"
+     CDS             286..2709
+                     /gene="FGFR3"
+                     /codon_start=1
+                     /product="fibroblast growth factor receptor 3 isoform X1"
+                     /protein_id="XP_023109257.1"
+                     /db_xref="GeneID:100141386"
+                     /db_xref="VGNC:VGNC:78496"
+                     /translation="MGALARALAFCVAVAVVTGAASGPPGMEQRVVRRAAEAPGPEPG
+                     PQEQLVFGSGDTVELSCHLPAGGPTGPSVWVKDGVGLAPSDRILVGPQRLQVLNASHE
+                     DTGAYSCRQRLTQRVLCDFSVRVTDAPSSGDDEDGEDEAEDTAGAPYWTRPERMDKKL
+                     LAVPAANTVRFRCPAAGNPAPSISWLKNGKEFRGEHRIGGIKLRHQQWSLVMESVVPS
+                     DRGNYTCVVANKFGSIRQTYTLDVLERSPHRPILQAGLPANQTAVLGSDVEFHCKVYS
+                     DAQPHIQWLKHVEVNGSKVGPDGTPYVTVLKSWISESVEADARLRLANVSERDGGEYL
+                     CRASNFIGVAEKAFWLRVHGPQAAEEELLEAGAAGSVYAGVLSYGAGFLLFILVVAAV
+                     TLCRLHSPPKKGLGSPTVHKVSRFPLKRQVTVSLESNSSMNSNTPLVRIARLSSGEGP
+                     ALANVSELELPADPKWELSRARLTLGKPLGEGCFGQVVMAEAIGIDKDRAAKPVTVAV
+                     KMLKDDATDKDLSDLVSEMEMMKMIGRHKNIINLLGACTQGGPLYVLVEYAAKGNLRE
+                     YLRARRPPGMDYSFDTCKLPEEQLTCKDLVSCAYQVARGMEYLASQKCIHRDLAARNV
+                     LVTEDNVMKIADFGLARDVHNLDYYKKTTNGRLPVKWMAPEALFDRVYTHQSDVWSFG
+                     VLLWEIFTLGGSPYPGIPVEELFKLLKEGHRMDKPANCTHDLYTIMRECWHAVPSQRP
+                     TFKQLVEDLDRILTVTSTDEYLDLSVPFEQYSPGGQDTPSSSSSGDDSVFAHDLLPPA
+                     PPGSGGPRT"
+     polyA_site      4345
+                     /gene="FGFR3"
+                     /experiment="COORDINATES: polyA evidence [ECO:0006239]"
+ORIGIN      
+        1 gctcagtgcg cggtggcggc ggcggcggcg gtgcggacag ctggcgccgc gcgatcctgc
+       61 tccgccgggc gcacggacgc accggcgagc cgacgctgga agcacggggc gcgggcgtcc
+      121 ggccggcgga caaggagccg gagcaagagc cgcgggcagc gagtgggcgc cagcggccgc
+      181 cagactgcct agcggcgccc tcctcccgcc ggtgccagag cggggccatg gggggcagca
+      241 tgcccgcgcg cgccgcctga ggacgtcgta gcccccgccc ccactatggg cgccctggct
+      301 cgcgccctcg cgttctgcgt ggccgtggcg gtcgtgaccg gcgccgcctc ggggcccccc
+      361 ggcatggagc agcgcgtcgt gcggagagcg gcagaggccc cgggacctga gcccggcccg
+      421 caggagcagc tggtctttgg cagcggggac accgtggagc tgagctgcca cttgcctgca
+      481 ggtggcccca cagggcccag cgtatgggtc aaggacggtg tggggctggc gccctcagac
+      541 cgcatcctgg tggggcctca gcggctgcag gtgctgaatg cctcccacga ggacacgggg
+      601 gcctacagct gccggcagcg gcttacccag cgcgtgctat gcgacttcag cgtgcgcgtg
+      661 acagatgccc cgtcctccgg ggatgacgaa gacggagagg atgaggctga ggacacagcc
+      721 ggggcccctt actggacgcg gcccgagcgg atggacaaga agctgctggc cgtgccggcc
+      781 gccaacaccg tccgcttccg ctgcccggcc gccggcaacc ccgctccatc catctcctgg
+      841 ctgaagaacg gcaaggagtt ccggggggag caccgcatcg ggggcatcaa gctgcgacac
+      901 cagcagtgga gcctggtcat ggagagcgtg gtcccgtcgg accgcggcaa ctacacgtgc
+      961 gttgtcgcga acaagttcgg cagcatccgc cagacctaca ccctggacgt gctggagcgc
+     1021 tctccgcacc ggcccatcct gcaggcgggg ctgccggcca accagacggc ggtgctgggc
+     1081 agcgacgttg agttccactg caaggtgtac agcgacgccc agccccacat ccagtggctg
+     1141 aagcacgtgg aagtgaacgg cagcaaagtg gggcccgacg gcacccccta cgtcaccgtg
+     1201 ctcaagtcct ggatcagtga gagtgtggag gccgacgcgc gcctccgcct ggccaatgtg
+     1261 tccgagcgtg acgggggcga gtacctctgt cgagcctcca atttcatagg cgtggctgag
+     1321 aaggcctttt ggctgcgtgt ccacgggccc caagcagccg aggaggagct gctggaggcc
+     1381 ggcgcggcgg gcagcgtgta tgcgggcgtc ctcagctacg gggcgggctt cctcctcttc
+     1441 atcctggtgg tggccgccgt gacactgtgc cgtctgcaca gtcccccgaa gaagggcctg
+     1501 ggctcgccca ccgtgcacaa ggtctcccgc tttccactca agcgacaggt aacagtgtcc
+     1561 ttggagtcca actcgtccat gaactccaac acgccgctgg tgcgaatcgc ccggctgtct
+     1621 tccggggagg gtcctgcgct ggccaacgtc tccgagctcg agctgcccgc cgaccccaag
+     1681 tgggagctat ccagggcccg gctgaccctg ggcaagcctc tcggggaggg ctgctttggc
+     1741 caagtggtca tggcagaggc catcggcatt gacaaggacc gggccgccaa gcctgtcact
+     1801 gtggccgtga agatgctgaa agacgacgcc acagacaagg acctgtcgga tctggtgtcg
+     1861 gagatggaga tgatgaaaat gatcggcaga cacaagaaca tcatcaacct gctgggggcc
+     1921 tgcacgcagg gcgggcccct gtacgtgctg gtggagtacg cggccaaggg gaacctgcgc
+     1981 gagtacctgc gggcgcggag gccgccaggc atggactact ccttcgacac gtgcaagctg
+     2041 cccgaggagc agctcacctg caaggacctg gtgtcttgtg cctaccaggt ggcgcggggc
+     2101 atggagtacc tggcctcgca gaagtgcatc cacagggacc tggcggcccg caacgtgctg
+     2161 gtgaccgagg acaacgtgat gaagattgcg gactttggtc tggcccgcga cgtgcacaac
+     2221 cttgactact acaaaaagac caccaatggc cggctgcccg tgaagtggat ggcaccggag
+     2281 gccttgtttg accgagtcta cacccaccag agtgacgtct ggtccttcgg ggtcctgctc
+     2341 tgggagatct tcactctggg gggctcaccg taccccggca tccccgtgga ggagctcttc
+     2401 aagctgctga aagagggcca ccgcatggac aagccggcca actgcacaca cgacctgtac
+     2461 acgatcatgc gggagtgctg gcacgcggtg ccctcgcaga ggcccacctt caagcagctg
+     2521 gtggaggacc tggaccgcat cctcaccgtc acgtccaccg atgaatacct agacctgtcg
+     2581 gtgcccttcg agcagtactc gccgggcggc caggacaccc ccagctccag ctcttcgggg
+     2641 gacgactctg tgtttgccca tgacctgctg cctccggccc ctcctggcag cgggggccct
+     2701 cggacgtgaa gggccaccgg cctgcaggcc gagcccccac caatgtgaga gcagacccca
+     2761 gctcaccgtg ccgccgtcga ccgcaggggc cccctggcct gggcctcaga cctgggccag
+     2821 atggacggat ggacagacag cttcgtgtgt gtgcgcctgt gtgagcgcgt gagtcttgag
+     2881 gcccccggcg ccccggcgca gggtccctgg ggtgcctgcc ctgctgtatg atgacctcct
+     2941 ggccacgtgt gctggcagca ccagggggac cgaatgtaga atgtaaaggg gctccttcct
+     3001 ggggcccctc ccccaggctc cccccacaca tcgctgcccc ccccgggagc actgtggggg
+     3061 ggggccggcc aagctctggc atccagcgtg gaccgaggcc cctccacttg ccgaagctga
+     3121 gcctgcaggg aagcctcccc ccgccccgcc cccccatgat acacctccca cccaagcggc
+     3181 accttgggcc tgggggggag tgctagcccg cagcctcccc ccacctccag gcctccccac
+     3241 ttcccaccct gctccttggg agactgaatt acgggtacct gaaggcagga ggctttaact
+     3301 tctgtccgag aggttcgttc cagaaatgag tgtacattta tataaataga tgctgtgtac
+     3361 aggatctaca catacgtata tatagagata cctatacgga gggaggaggg ctggtctaaa
+     3421 cgggcacggg accctgaggg tgcaggaggg aggcgcagct gccggcccgg gaggttcccg
+     3481 agggatctgc tgagatcaac gcgaaagcca gcaggagatc gagaggcttt tctggcaacg
+     3541 cagttttgtt ttaaaaattg tatatttgta aagctattta tcgaccccca gaacccccgg
+     3601 ccctgtgccc ctctcccccc cccccccccc ccccccgtgc tcatagtgtt cagccagccg
+     3661 cgtggcagag aggtctcagt tttaacttat taacagccga gaaggttcct gcttcatgta
+     3721 gagggcccgc taagggcttc accccaaagc ccagccaggt cccttgcacc cttaagggtc
+     3781 gttaatagtt tgaggtgatt ctagtgagga tattttattt cctttggcct tctttcacag
+     3841 gggaattagg tttctatagg gtttttcttt aggagatgta ttttttggac ttcaaagcaa
+     3901 gctggtattt tcatacaagt tctaattgcc atgtgttctg agtgaggagg cagtttccgg
+     3961 ggggggaggg gggggcaacc ctgcacgcag gttcagatgt tattagatgt tacaagttta
+     4021 tatatatcta tatatataat ttattgagtt tttacaagat gtatttgctg tagatttaac
+     4081 acttcttacg caatgctttt agacttttat agcccagact gctacctttc aaagcttggg
+     4141 agagaaagcc gtgaattcag ttttgttact ttttgtactg ttaatggccc gcatttgggt
+     4201 ggctgtcttg ctcatccgcc cgccagccgg gcagcggtcc agggtggtct ctgttctcag
+     4261 gtccccagcc tcatgggggt caaaggtgtt ggcccaaact ggcagatgcg ctttccaaaa
+     4321 aataaacaga gacaactggt tcaca
+//
+

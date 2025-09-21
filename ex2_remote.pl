@@ -9,8 +9,10 @@ use Bio::SeqIO; # Biblioteca que permite leer y escribir secuencias en diferente
 my $ua = LWP::UserAgent->new; # Crear un objeto de la clase LWP::UserAgent
 $ua->timeout(30); # Establecer el tiempo de espera en 30 segundos
 
+my $input_file_name = "FGFR3_human_orfs.fasta";
+
 # Leer archivo FASTA
-my $seqio = Bio::SeqIO->new(-file => "FGFR3_orfs.fasta", -format => "fasta"); # Crear un objeto de la clase Bio::SeqIO
+my $seqio = Bio::SeqIO->new(-file => $input_file_name, -format => "fasta"); # Crear un objeto de la clase Bio::SeqIO
 # -file: indica el archivo de entrada
 # -format: indica el formato del archivo de entrada
 # $seqio: objeto de la clase Bio::SeqIO que permite leer el archivo FASTA

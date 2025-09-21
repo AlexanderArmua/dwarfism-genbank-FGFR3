@@ -14,8 +14,10 @@ Este proyecto realiza un análisis bioinformático completo del gen **FGFR3** (F
 
 ```
 bioinformatica/
-├── FGFR3.gbk              # Archivo GenBank original
-├── FGFR3_orfs.fasta       # ORFs traducidos (6 marcos)
+├── FGFR3_human.gbk              # Archivo GenBank original
+├── FGFR3_human_orfs.fasta       # ORFs traducidos (6 marcos)
+├── FGFR3_cat.gbk 
+├── FGFR3_cat_orfs.fasta
 ├── Ex1.pl                 # Script de traducción de ORFs
 ├── Ex2_remote.pl          # Script BLAST remoto
 ├── blast_local.out        # Resultados BLAST local
@@ -60,7 +62,7 @@ cpanm HTTP::Request::Common
 # Convertir GenBank a FASTA con 6 marcos de lectura
 perl Ex1.pl
 ```
-**Output:** `FGFR3_orfs.fasta` con 6 secuencias de proteínas
+**Output:** `FGFR3_human_orfs.fasta` con 6 secuencias de proteínas
 
 ### Paso 2A: BLAST Remoto (Opcional)
 ```bash
@@ -79,13 +81,13 @@ gunzip swissprot.gz
 makeblastdb -in swissprot -dbtype prot -out swissprot_db
 
 # Ejecutar BLAST local
-blastp -db swissprot_db -query FGFR3_orfs.fasta -out blast_local.out -outfmt 6 -evalue 1e-5 -max_target_seqs 10
+blastp -db swissprot_db -query FGFR3_human_orfs.fasta -out blast_local.out -outfmt 6 -evalue 1e-5 -max_target_seqs 10
 ```
 
 ## 📊 Interpretación de Resultados
 
 ### Archivos FASTA generados
-- **FGFR3_orfs.fasta**: Contiene 6 secuencias de proteínas traducidas
+- **FGFR3_human_orfs.fasta**: Contiene 6 secuencias de proteínas traducidas
   - `ORF_plus_0`, `ORF_plus_1`, `ORF_plus_2`: Marcos directos
   - `ORF_minus_0`, `ORF_minus_1`, `ORF_minus_2`: Marcos reversos
 
