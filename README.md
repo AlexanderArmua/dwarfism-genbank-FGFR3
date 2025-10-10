@@ -60,31 +60,38 @@ cpanm HTTP::Request::Common
 ### Paso 1: Generar ORFs
 ```bash
 # Convertir GenBank a FASTA con 6 marcos de lectura
-perl Ex1.pl
+perl gbk_to_fasta.pl FGFR3_human
 ```
-**Output:** `FGFR3_human_orfs.fasta` con 6 secuencias de proteínas
+**Output:** `fasta_files/FGFR3_human.fasta` con 6 secuencias de proteínas
 
 ### Paso 2A: BLAST Remoto (Opcional)
 ```bash
 # Ejecutar BLAST remoto contra SwissProt
-perl Ex2_remote.pl
+perl remote_blast.pl FGFR3_human
 ```
-**Output:** 6 archivos `blast_result_ORF_*.txt`
+**Output:** 6 archivos `/results/remote_blast/blast_result_ORF_*.txt`
 
 ### Paso 2B: BLAST Local (Recomendado)
 ```bash
 # Descargar base de datos SwissProt
+cd swissprot/
 curl -O ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/swissprot.gz
 gunzip swissprot.gz
 
 # Crear base de datos local
 makeblastdb -in swissprot -dbtype prot -out swissprot_db
+cd ..
 
 # Ejecutar BLAST local
-blastp -db swissprot_db -query FGFR3_human_orfs.fasta -out blast_local.out -outfmt 6 -evalue 1e-5 -max_target_seqs 10
+blastp -db swissprot/swissprot_db -query fasta_files/FGFR3_human.fasta -out results/blast_local.out -outfmt 6 -evalue 1e-5 -max_target_seqs 10
 ```
 
 ## 📊 Interpretación de Resultados
+
+### Seleccionar un ORF específico
+```bash
+perl extract_orf.pl FGFR3_human ORF_plus_2
+```
 
 ### Archivos FASTA generados
 - **FGFR3_human_orfs.fasta**: Contiene 6 secuencias de proteínas traducidas
@@ -141,10 +148,13 @@ df -h
 - **NCBI Gene**: [FGFR3](https://www.ncbi.nlm.nih.gov/gene/2261)
 - **BLAST Documentation**: [NCBI BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
-## 👤 Autor
+## 👤 Autores
 
-**Alexander Armua Abregu** (Legajo: 156.785-8)  
-Sistemas Engineer Student - UTN Buenos Aires
+**Alexander Armua Abregu** (Legajo: 156.785-8)
+**Carlos Jimenez** (Legajo:171.867-8)
+**Tomás Fernández** (Legajo: 155.854-7)
+**Emmanuel Villalba** (Legajo: 128128-8)
+Sistemas Engineer Students - UTN Buenos Aires
 
 ## 📄 Licencia
 

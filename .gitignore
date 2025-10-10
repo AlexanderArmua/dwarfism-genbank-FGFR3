@@ -5,6 +5,7 @@
 # ======================
 *.gz
 *.tar.gz
+/swissprot/
 swissprot
 swissprot_db*
 *.phr
@@ -22,6 +23,7 @@ blast_local.out
 *.blast
 *.xml
 *.asn
+/results/
 
 # ======================
 # Sequence Files (Large)
@@ -35,10 +37,9 @@ blast_local.out
 *.faa
 *.frn
 
-# Keep sample/small FASTA files but ignore large ones
+# ignore FASTA files
+/fasta_files/
 *.fasta
-!*_orfs.fasta
-!sample*.fasta
 
 # ======================
 # Perl/BioPerl Temp Files
@@ -72,6 +73,9 @@ Icon?
 .vscode/
 *.swp
 *.swo
+
+# IDEA
+/.idea/
 
 # Vim
 *~
