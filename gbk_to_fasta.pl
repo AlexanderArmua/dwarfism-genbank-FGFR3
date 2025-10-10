@@ -3,6 +3,9 @@ use strict; # Evita que se asignen valores a variables no declaradas
 use warnings; # Muestra advertencias cuando se produce un error
 use Bio::SeqIO; # Biblioteca que permite leer y escribir secuencias en diferentes formatos.
 
+use File::Path qw(make_path);
+make_path('fasta_files') unless -d 'fasta_files';
+
 # Descripción del código:
 # Este código lee un archivo GenBank y genera tres marcos directos y tres marcos reversos de la secuencia del gen FGFR3.
 
@@ -14,8 +17,9 @@ use Bio::SeqIO; # Biblioteca que permite leer y escribir secuencias en diferente
 # $input: objeto de la clase Bio::SeqIO que permite leer el archivo GenBank
 # $output: objeto de la clase Bio::SeqIO que permite escribir el archivo FASTA
 
-my $input_file_name = "FGFR3_human.gbk";
-my $output_file_name = "FGFR3_human_orfs.fasta";
+my $file_name = $ARGV[0];
+my $input_file_name = "gbk_files/$file_name.gbk";
+my $output_file_name = "fasta_files/$file_name.fasta";
 
 my $input = Bio::SeqIO->new(-file => $input_file_name, -format => "genbank");
 # Output FASTA:

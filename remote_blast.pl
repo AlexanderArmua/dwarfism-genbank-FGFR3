@@ -9,7 +9,8 @@ use Bio::SeqIO; # Biblioteca que permite leer y escribir secuencias en diferente
 my $ua = LWP::UserAgent->new; # Crear un objeto de la clase LWP::UserAgent
 $ua->timeout(30); # Establecer el tiempo de espera en 30 segundos
 
-my $input_file_name = "FGFR3_human_orfs.fasta";
+my $file_name = $ARGV[0];
+my $input_file_name = "fasta_files/$file_name.fasta";
 
 # Leer archivo FASTA
 my $seqio = Bio::SeqIO->new(-file => $input_file_name, -format => "fasta"); # Crear un objeto de la clase Bio::SeqIO
@@ -54,10 +55,12 @@ while (my $seq = $seqio->next_seq) { # Leer la secuencia FASTA
             
             if ($get_response->is_success) { # Si la respuesta es exitosa
                 # Guardar resultados
-                open(my $out, ">", "blast_result_$seq_id.txt") or die "Cannot open file: $!";
+                use File::Path qw(make_path);
+                make_path('results/remote_blast') unless -d 'results/remote_blast';
+                open(my $out, ">", "results/remote_blast/blast_result_$seq_id.txt") or die "Cannot open file: $!";
                 print $out $get_response->content;
                 close($out);
-                print "Resultados guardados en blast_result_$seq_id.txt\n";
+                print "Resultados guardados en results/remote_blast/blast_result_$seq_id.txt\n";
             } else {
                 print "Error obteniendo resultados: " . $get_response->status_line . "\n";
             }
