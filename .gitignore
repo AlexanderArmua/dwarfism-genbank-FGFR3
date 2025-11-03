@@ -18,28 +18,28 @@ swissprot_db*
 # ======================
 # BLAST Results
 # ======================
-blast_result_*.txt
-blast_local.out
-*.blast
-*.xml
-*.asn
-/results/
+# blast_result_*.txt
+# blast_local.out
+# *.blast
+# *.xml
+# *.asn
+# /results/
 
 # ======================
 # Sequence Files (Large)
 # ======================
 # *.gbk
-*.gb
-*.genbank
-*.embl
-*.fna
-*.ffn
-*.faa
-*.frn
+# *.gb
+# *.genbank
+# *.embl
+# *.fna
+# *.ffn
+# *.faa
+# *.frn
 
 # ignore FASTA files
-/fasta_files/
-*.fasta
+# /fasta_files/
+# *.fasta
 
 # ======================
 # Perl/BioPerl Temp Files

@@ -1,0 +1,5 @@
+ORF_plus_0	sp|P22607.1|	88.779	811	96	902	1	806	0.0	1396	RecName: Full=Fibroblast growth factor receptor 3; Short=FGFR-3; AltName: CD_antigen=CD333; Flags: Precursor [Homo sapiens]
+ORF_plus_0	sp|Q61851.1|	88.398	793	100	890	5	789	0.0	1394	RecName: Full=Fibroblast growth factor receptor 3; Short=FGFR-3; AltName: Full=Heparin-binding growth factor receptor; AltName: CD_antigen=CD333; Flags: Precursor [Mus musculus]
+ORF_plus_0	sp|P18460.1|	78.618	767	129	894	34	792	0.0	1216	RecName: Full=Fibroblast growth factor receptor 3; Short=FGFR-3; AltName: Full=Tyrosine kinase receptor CEK2; Flags: Precursor [Gallus gallus]
+ORF_plus_0	sp|O42127.1|	73.522	778	120	894	17	788	0.0	1159	RecName: Full=Fibroblast growth factor receptor 3; Short=FGFR-3; Flags: Precursor [Xenopus laevis]
+ORF_plus_0	sp|Q91287.1|	75.701	749	142	889	42	778	0.0	1120	RecName: Full=Fibroblast growth factor receptor 3; Short=FGFR-3; AltName: Full=PFR3; Flags: Precursor [Pleurodeles waltl]
