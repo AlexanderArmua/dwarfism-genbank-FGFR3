@@ -1,0 +1,27 @@
+=== REPORTE DE ANÁLISIS EMBOSS (VERSIÓN LIMPIA) ===
+Fecha: Mon Nov  3 18:36:13 2025
+Archivo input original: fasta_files/FGFR3_human.fasta
+Archivo limpio procesado: emboss_results_clean/sequences_clean.fasta
+Secuencias válidas procesadas: 6
+
+ARCHIVOS GENERADOS:
+- Secuencias limpias: emboss_results_clean/sequences_clean.fasta
+- Estadísticas de proteínas: emboss_results_clean/protein_stats.txt
+- Composición de aminoácidos: emboss_results_clean/amino_acid_composition.txt
+- Información de secuencias: emboss_results_clean/sequence_info.txt
+- Propiedades fisicoquímicas: emboss_results_clean/physicochemical_properties.txt
+- Patrones de aminoácidos: emboss_results_clean/amino_patterns.txt
+
+DESCRIPCIÓN DE ANÁLISIS REALIZADOS:
+1. Limpieza de secuencias - Remoción de caracteres inválidos
+2. pepstats - Estadísticas básicas de las secuencias
+3. compseq - Composición de aminoácidos
+4. infoseq - Información general de secuencias
+5. pepinfo - Propiedades fisicoquímicas
+6. pepwindowall - Análisis de patrones locales
+
+PROBLEMAS SOLUCIONADOS:
+- Remoción de caracteres inválidos (*, X, B, Z, U)
+- Filtrado de secuencias muy cortas (<10 aa)
+- Parámetros automáticos para evitar prompts interactivos
+- Análisis sin dependencias de PROSITE

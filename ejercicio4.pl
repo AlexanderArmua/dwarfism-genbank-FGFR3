@@ -6,7 +6,7 @@ use warnings;
 
 # --- Para el Punto Extra ---
 # Importamos los módulos de BioPerl necesarios
-use Bio::DB::GenBank;
+use Bio::DB::SwissProt;
 use Bio::SeqIO;
 
 # --- 1. Verificación de Inputs ---
@@ -76,11 +76,11 @@ if (scalar keys %accessions_to_fetch > 0) {
     
     print "--- Punto Extra: Descargando secuencias FASTA ---\n";
     
-    my $output_fasta = 'hits_seleccionados.fasta';
+    my $output_fasta = 'results/hits_seleccionados.fasta';
     
     # Inicializamos la conexión a GenBank (NCBI)
-    my $gb_conn = Bio::DB::GenBank->new();
-    
+    my $sp_conn = Bio::DB::SwissProt->new();
+
     # Inicializamos el objeto para escribir el archivo FASTA de salida
     my $seq_out = Bio::SeqIO->new(
         -file   => ">$output_fasta",
@@ -98,7 +98,7 @@ if (scalar keys %accessions_to_fetch > 0) {
         
         eval {
             # Intentamos obtener la secuencia por su ID de acceso
-            my $seq_obj = $gb_conn->get_Seq_by_acc($acc);
+            my $seq_obj = $sp_conn->get_Seq_by_acc($acc);
             
             if ($seq_obj) {
                 # Si se encuentra, la escribimos en el archivo FASTA
