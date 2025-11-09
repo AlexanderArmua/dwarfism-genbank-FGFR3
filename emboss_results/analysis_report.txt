@@ -1,16 +1,16 @@
 === REPORTE DE ANÁLISIS EMBOSS (VERSIÓN LIMPIA) ===
-Fecha: Mon Nov  3 18:36:13 2025
+Fecha: Sun Nov  9 11:28:19 2025
 Archivo input original: fasta_files/FGFR3_human.fasta
-Archivo limpio procesado: emboss_results_clean/sequences_clean.fasta
+Archivo limpio procesado: emboss_results/sequences_clean.fasta
 Secuencias válidas procesadas: 6
 
 ARCHIVOS GENERADOS:
-- Secuencias limpias: emboss_results_clean/sequences_clean.fasta
-- Estadísticas de proteínas: emboss_results_clean/protein_stats.txt
-- Composición de aminoácidos: emboss_results_clean/amino_acid_composition.txt
-- Información de secuencias: emboss_results_clean/sequence_info.txt
-- Propiedades fisicoquímicas: emboss_results_clean/physicochemical_properties.txt
-- Patrones de aminoácidos: emboss_results_clean/amino_patterns.txt
+- Secuencias limpias: emboss_results/sequences_clean.fasta
+- Estadísticas de proteínas: emboss_results/protein_stats.txt
+- Composición de aminoácidos: emboss_results/amino_acid_composition.txt
+- Información de secuencias: emboss_results/sequence_info.txt
+- Propiedades fisicoquímicas: emboss_results/physicochemical_properties.txt
+- Patrones de aminoácidos: emboss_results/amino_patterns.txt
 
 DESCRIPCIÓN DE ANÁLISIS REALIZADOS:
 1. Limpieza de secuencias - Remoción de caracteres inválidos

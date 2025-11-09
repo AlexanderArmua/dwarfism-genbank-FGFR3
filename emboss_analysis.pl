@@ -4,10 +4,8 @@ use strict;
 use warnings;
 use File::Basename;
 
-# --- Configuración ---
-my $OUTPUT_DIR = "emboss_results_clean";
+my $OUTPUT_DIR = "emboss_results";
 
-# --- 1. Verificación de Inputs ---
 my ($input_file) = @ARGV;
 
 unless (@ARGV == 1) {
@@ -19,14 +17,12 @@ unless (-f $input_file) {
     die "Error: No se pudo encontrar el archivo '$input_file'\n";
 }
 
-# Crear directorio de salida
 system("mkdir -p $OUTPUT_DIR");
 
-print "=== ANÁLISIS DE SECUENCIAS CON EMBOSS (VERSIÓN MEJORADA) ===\n";
+print "=== ANÁLISIS DE SECUENCIAS CON EMBOSS ===\n";
 print "Input: $input_file\n";
 print "Output dir: $OUTPUT_DIR\n\n";
 
-# --- 2. Limpiar secuencias problemáticas ---
 print "1. Limpiando secuencias problemáticas...\n";
 my $clean_file = "$OUTPUT_DIR/sequences_clean.fasta";
 
@@ -41,7 +37,6 @@ while (my $line = <$in_fh>) {
     chomp $line;
     
     if ($line =~ /^>(.+)/) {
-        # Procesar secuencia anterior si existe
         if ($current_header && $current_seq) {
             process_sequence($current_header, $current_seq, $out_fh, \$sequence_count);
         }
@@ -53,7 +48,6 @@ while (my $line = <$in_fh>) {
     }
 }
 
-# Procesar última secuencia
 if ($current_header && $current_seq) {
     process_sequence($current_header, $current_seq, $out_fh, \$sequence_count);
 }
@@ -67,37 +61,31 @@ if ($sequence_count == 0) {
     die "Error: No se encontraron secuencias válidas después de la limpieza\n";
 }
 
-# --- 3. Análisis de estadísticas básicas ---
 print "2. Calculando estadísticas de proteínas...\n";
 my $stats_file = "$OUTPUT_DIR/protein_stats.txt";
 system("pepstats -sequence $clean_file -outfile $stats_file -auto");
 print "   -> Estadísticas guardadas en: $stats_file\n\n";
 
-# --- 4. Análisis de composición (con parámetros automáticos) ---
 print "3. Calculando composición de aminoácidos...\n";
 my $comp_file = "$OUTPUT_DIR/amino_acid_composition.txt";
 system("compseq -sequence $clean_file -outfile $comp_file -word 1 -auto");
 print "   -> Composición guardada en: $comp_file\n\n";
 
-# --- 5. Información básica de secuencias ---
 print "4. Obteniendo información de secuencias...\n";
 my $info_file = "$OUTPUT_DIR/sequence_info.txt";
 system("infoseq -sequence $clean_file -outfile $info_file -auto");
 print "   -> Información guardada en: $info_file\n\n";
 
-# --- 6. Análisis de propiedades (sin gráficos) ---
 print "5. Analizando propiedades fisicoquímicas...\n";
 my $props_file = "$OUTPUT_DIR/physicochemical_properties.txt";
 system("pepinfo -sequence $clean_file -outfile $props_file -graph none -auto");
 print "   -> Propiedades guardadas en: $props_file\n\n";
 
-# --- 7. Buscar motivos simples (sin PROSITE) ---
 print "6. Buscando patrones de aminoácidos...\n";
 my $patterns_file = "$OUTPUT_DIR/amino_patterns.txt";
 system("pepwindowall -sequence $clean_file -outfile $patterns_file -auto");
 print "   -> Patrones encontrados en: $patterns_file\n\n";
 
-# --- 8. Generar reporte final ---
 print "7. Generando reporte final...\n";
 my $report_file = "$OUTPUT_DIR/analysis_report.txt";
 
@@ -135,24 +123,20 @@ close $report_fh;
 
 print "   -> Reporte completo en: $report_file\n\n";
 
-print "=== ANÁLISIS COMPLETADO EXITOSAMENTE ===\n";
 print "Todos los resultados están en el directorio: $OUTPUT_DIR/\n";
 print "Archivo principal de resultados: $report_file\n";
 
-# --- Subrutina para procesar y limpiar secuencias ---
 sub process_sequence {
     my ($header, $seq, $out_fh, $count_ref) = @_;
     
-    # Limpiar secuencia
-    $seq = uc($seq);                    # Convertir a mayúsculas
-    $seq =~ s/[^ACDEFGHIKLMNPQRSTVWY]//g; # Remover caracteres inválidos
-    $seq =~ s/\s+//g;                   # Remover espacios
+    $seq = uc($seq);                    # Uppercase
+    $seq =~ s/[^ACDEFGHIKLMNPQRSTVWY]//g; # Sacar caracteres inválidos
+    $seq =~ s/\s+//g;                   # Sacar espacios
     
-    # Solo procesar secuencias de al menos 10 aminoácidos
+    # Sacamos las secuencias con menos de 10 aminoácidos
     if (length($seq) >= 10) {
         print $out_fh ">$header\n";
-        
-        # Escribir secuencia en líneas de 80 caracteres
+
         my $pos = 0;
         while ($pos < length($seq)) {
             my $line = substr($seq, $pos, 80);
