@@ -41,7 +41,7 @@ if (scalar keys %accessions_to_fetch > 0) {
     
     print "--- Descargando secuencias FASTA ---\n";
     
-    my $output_fasta = 'results/hits_seleccionados.fasta';
+    my $output_fasta = 'results/blast_analysis_results.fasta';
     my $gb_conn = Bio::DB::GenPept->new();
     my $seq_out = Bio::SeqIO->new(
         -file   => ">$output_fasta",
