@@ -23,7 +23,7 @@ print "=== ANÁLISIS DE SECUENCIAS CON EMBOSS ===\n";
 print "Input: $input_file\n";
 print "Output dir: $OUTPUT_DIR\n\n";
 
-print "1. Limpiando secuencias problemáticas...\n";
+print "Limpiando secuencias problemáticas...\n";
 my $clean_file = "$OUTPUT_DIR/sequences_clean.fasta";
 
 open(my $in_fh, '<', $input_file) or die "No se pudo abrir $input_file: $!\n";
@@ -61,63 +61,45 @@ if ($sequence_count == 0) {
     die "Error: No se encontraron secuencias válidas después de la limpieza\n";
 }
 
-print "2. Calculando estadísticas de proteínas...\n";
+print "1. Calculando estadísticas de proteínas...\n";
 my $stats_file = "$OUTPUT_DIR/protein_stats.txt";
 system("pepstats -sequence $clean_file -outfile $stats_file -auto");
 print "   -> Estadísticas guardadas en: $stats_file\n\n";
 
-print "3. Calculando composición de aminoácidos...\n";
+print "2. Calculando composición de aminoácidos...\n";
 my $comp_file = "$OUTPUT_DIR/amino_acid_composition.txt";
 system("compseq -sequence $clean_file -outfile $comp_file -word 1 -auto");
 print "   -> Composición guardada en: $comp_file\n\n";
 
-print "4. Obteniendo información de secuencias...\n";
+print "3. Obteniendo información de secuencias...\n";
 my $info_file = "$OUTPUT_DIR/sequence_info.txt";
 system("infoseq -sequence $clean_file -outfile $info_file -auto");
 print "   -> Información guardada en: $info_file\n\n";
 
-print "5. Analizando propiedades fisicoquímicas...\n";
+print "4. Analizando propiedades fisicoquímicas...\n";
 my $props_file = "$OUTPUT_DIR/physicochemical_properties.txt";
 system("pepinfo -sequence $clean_file -outfile $props_file -graph none -auto");
 print "   -> Propiedades guardadas en: $props_file\n\n";
 
-print "6. Buscando patrones de aminoácidos...\n";
-my $patterns_file = "$OUTPUT_DIR/amino_patterns.txt";
-system("pepwindowall -sequence $clean_file -outfile $patterns_file -auto");
+print "5. Buscando patrones de aminoácidos...\n";
+my $patterns_file = "$OUTPUT_DIR/amino_patterns";
+system("pepwindowall -sequence $clean_file -graph svg -goutfile $patterns_file");
 print "   -> Patrones encontrados en: $patterns_file\n\n";
 
-print "7. Generando reporte final...\n";
+print "6. Generando reporte final...\n";
 my $report_file = "$OUTPUT_DIR/analysis_report.txt";
 
 open(my $report_fh, '>', $report_file) or die "No se pudo crear $report_file: $!\n";
 
-print $report_fh "=== REPORTE DE ANÁLISIS EMBOSS (VERSIÓN LIMPIA) ===\n";
-print $report_fh "Fecha: " . localtime() . "\n";
+print $report_fh "=== REPORTE DE ANÁLISIS EMBOSS===\n";
 print $report_fh "Archivo input original: $input_file\n";
-print $report_fh "Archivo limpio procesado: $clean_file\n";
 print $report_fh "Secuencias válidas procesadas: $sequence_count\n\n";
 
-print $report_fh "ARCHIVOS GENERADOS:\n";
-print $report_fh "- Secuencias limpias: $clean_file\n";
-print $report_fh "- Estadísticas de proteínas: $stats_file\n";
-print $report_fh "- Composición de aminoácidos: $comp_file\n";
-print $report_fh "- Información de secuencias: $info_file\n";
-print $report_fh "- Propiedades fisicoquímicas: $props_file\n";
-print $report_fh "- Patrones de aminoácidos: $patterns_file\n\n";
-
-print $report_fh "DESCRIPCIÓN DE ANÁLISIS REALIZADOS:\n";
-print $report_fh "1. Limpieza de secuencias - Remoción de caracteres inválidos\n";
-print $report_fh "2. pepstats - Estadísticas básicas de las secuencias\n";
-print $report_fh "3. compseq - Composición de aminoácidos\n";
-print $report_fh "4. infoseq - Información general de secuencias\n";
-print $report_fh "5. pepinfo - Propiedades fisicoquímicas\n";
-print $report_fh "6. pepwindowall - Análisis de patrones locales\n\n";
-
-print $report_fh "PROBLEMAS SOLUCIONADOS:\n";
-print $report_fh "- Remoción de caracteres inválidos (*, X, B, Z, U)\n";
-print $report_fh "- Filtrado de secuencias muy cortas (<10 aa)\n";
-print $report_fh "- Parámetros automáticos para evitar prompts interactivos\n";
-print $report_fh "- Análisis sin dependencias de PROSITE\n";
+print $report_fh "1. pepstats - Estadísticas de proteínas: $stats_file\n";
+print $report_fh "2. compseq - Composición de aminoácidos: $comp_file\n";
+print $report_fh "3. infoseq - Información de secuencias: $info_file\n";
+print $report_fh "4. pepinfo - Propiedades fisicoquímicas: $props_file\n";
+print $report_fh "5. pepwindowall - Análisis de patrones de aminoácidos $patterns_file.png\n\n";
 
 close $report_fh;
 
